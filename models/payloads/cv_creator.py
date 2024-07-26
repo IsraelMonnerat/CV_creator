@@ -1,5 +1,9 @@
 from pydantic import BaseModel
 from typing import Optional
+from fastapi import HTTPException
+
+from services.utils import validate_field
+
 
 
 class Experience(BaseModel):
@@ -25,3 +29,12 @@ class CreateResumePayload(BaseModel):
     skills: list[str]
     experience: list[Experience]
     education: list[Education]
+
+    @classmethod
+    def validate_payload(cls, field: str) -> None:
+        if not validate_field(field=field, pattern=r'^[\w\.-]+@[\w\.-]+\.\w+$'):
+            raise HTTPException(status_code=400, detail=f"Invalid field format: {field}")
+
+    @classmethod
+    def validate(cls, payload: dict) -> None:
+        cls.validate_payload(payload.email)

@@ -11,7 +11,7 @@ def add_routes(app: FastAPI) -> None:
 def create_app() -> FastAPI:
     app = FastAPI(
         title="CV Creator",
-        version="0.1.0",
+        version="1.1.0",
         description="Create your CV with ease",
         docs_url="/docs",
     )

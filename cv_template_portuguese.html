@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />    
-    <title>Resume</title>
+    <title>Currículo</title>
 </head>
 <body>
     <div class="section">
@@ -27,7 +27,7 @@
         <div class="title">Experiência</div>
         <div class="border"></div>
         {% for exp in experience %}
-        <div class="section">
+        <div class="section section-border">
             <div class="subtitle">{{ exp.company_name }}</div>
             <div class="info">
                 <div class="content subtitle">{{ exp.role_name }}</div>
@@ -41,7 +41,7 @@
         <div class="title">Educação</div>
         <div class="border"></div>
         {% for ed in education %}
-        <div class="section">
+        <div class="section section-border">
             <div class="info">
                 <div class="content subtitle">{{ ed.university_name }}</div>
                 <div class="content subtitle">{{ ed.univerity_address }}</div>

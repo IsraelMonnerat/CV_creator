@@ -12,6 +12,7 @@ router = APIRouter(tags=["CV Creator"])
 async def create_resume(
     payload: CreateResumePayload
 ) -> HTMLResponse:
+    payload.validate(payload)
     logging.info("Creating resume")
     resume = await ResumeCreatorService().create_resume(payload)
     return resume
